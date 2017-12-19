@@ -1,0 +1,38 @@
+! Xft Font Configuration
+Xft.dpi: 82
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: false
+Xft.hintstyle: hintnone
+
+! Source Sans
+URxvt.font: xft:Source Code Pro:size=14
+URxvt.boldFont: xft:Source Code Pro:bold:size=14
+URxvt.italicFont: xft:Source Code Pro:italic:size=14
+URxvt.boldItalicFont: xft:Source Code Pro:bolditalic:size=14
+
+! Look and Feel
+URxvt.iconFile: /usr/share/icons/Numix-Circle/48/apps/terminal.svg
+URxvt.iconName: terminal
+URxvt.visualBell: false
+URxvt.depth: 32
+URxvt.scrollBar: false
+URxvt.transparent: true
+URxvt.shading: 35
+
+! Plugins: URL Matcher, Clipboard, Tabs, Scrollwheel
+URxvt.perl-ext-common: default,matcher,clipboard,tabbedex,vtwheel
+URxvt.modifier: super
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.tabbed.autohide: true
+URxvt.keysym.Control-t: perl:tabbedex:new_tab
+URxvt.keysym.Control-Tab: perl:tabbedex:next_tab
+URxvt.keysym.Control-Shift-Tab: perl:tabbedex:prev_tab
+URxvt.keysym.Control-Shift-Left: perl:tabbedex:move_tab_left
+URxvt.keysym.Control-Shift-Right: perl:tabbedex:move_tab_right
+
+
+Xcursor.theme: OpenZone_Black_Slim

@@ -15,7 +15,6 @@
 # Kill focused window
     bindsym $Alt+f4         kill
     bindsym $mod+Shift+q    kill
-#   bindsym $mod+Shift+q    exec Ctrl+f4
 
 # Change focus
 
@@ -66,12 +65,6 @@
 
 # change focus between tiling / floating windows
     bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-    #bindsym $mod+a focus parent
-
-# focus the child container
-    #bindsym $mod+d focus child
 
 #Move to workspace
     bindsym $mod+Shift+1 workspace 1
@@ -194,7 +187,7 @@
         client.background       $bg
 
 # Run wal
-    exec --no-startup-id wal -i /home/jayajr/images/backgrounds/Charge.jpg -a 50
+    exec --no-startup-id wal -i /home/jayajr/images/backgrounds/Peaks.jpg -a 50
     
 # Run dunst
     exec dunst
