@@ -144,6 +144,8 @@
     bindsym $mod+9 exec jetbrains-rubymine
     bindsym $mod+0 exec jetbrains-intellij
 
+# Thunar
+    bindsym $mod+e exec Thunar
 
 # Enable keyboard shortcuts for audio
     bindcode 123 exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound
@@ -187,7 +189,7 @@
         client.background       $bg
 
 # Run wal
-    exec --no-startup-id wal -i /home/jayajr/images/backgrounds/Peaks.jpg -a 50
+    exec --no-startup-id wal -i /home/jayajr/images/backgrounds/Peaks.png -a 50
     
 # Run dunst
     exec dunst
