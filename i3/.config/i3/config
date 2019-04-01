@@ -18,10 +18,10 @@
 
 # Change focus
 
-#    bindsym $mod+j          focus left
-#    bindsym $mod+k          focus down
-#    bindsym $mod+l          focus up
-#    bindsym $mod+semicolon  focus right
+    bindsym $mod+j          focus left
+    bindsym $mod+k          focus down
+    bindsym $mod+l          focus up
+    bindsym $mod+semicolon  focus right
 
 # Split in horizontal orientation
     bindsym $mod+h split h
@@ -117,7 +117,7 @@
 # ===== Application Shortcuts =====
 
 # i3-Lock
-    bindsym $mod+l          exec lock
+    #bindsym $mod+l          exec i3lock -t -i ~/Pictures/Wallpapers/Alpine.png 
 
 # Rofi
     # bindsym $mod+d exec dmenu_run -nb "$c0" -nf "$c4" -sb "$c6" -sf "$fg"
@@ -127,7 +127,8 @@
 
 # Start a terminal
 # Uses daemon-client to save on ram for multiple terminals
-    bindsym $mod+Return exec urxvtc +sb
+    bindsym $mod+t exec urxvtc -e bash -c "tmux"
+    bindsym $mod+Return exec urxvtc -e bash -c "tmux a"
 
 # Polybar
     exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -135,17 +136,8 @@
 # Quickbar
     # Browser
     bindsym $mod+1 exec firefox
+    bindsym $mod+2 exec chromium
 
-    # Sublime
-    bindsym $mod+2 exec subl3
-
-    # Intellij
-    bindsym $mod+8 exec jetbrains-clion
-    bindsym $mod+9 exec jetbrains-rubymine
-    bindsym $mod+0 exec jetbrains-intellij
-
-# Thunar
-    bindsym $mod+e exec Thunar
 
 # Enable keyboard shortcuts for audio
     bindcode 123 exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound
@@ -157,15 +149,15 @@
     bindcode 233 exec light -A 5
 
 # Screenshot with scrot
-    bindcode 107 exec scrot ~/images/screenshots/%b%d::%H%M%S.png
+    bindcode $mod+107 exec flameshot gui -p ~/Pictures/Screenshots
+
+exec xrdb -load /home/jayajr/.Xresources
 
 # ===== Daemons =====
-# Terminal daemon
-    exec urxvtd -q -f -o
 
-# Feh background image
-    # wal takes over?
-    # exec --no-startup-id feh --bg-fill ~/images/backgrounds/Charge.jpg
+# Terminal daemon
+    exec tmux new -s main
+    exec urxvtd -q -f -o
 
 # ===== wal =====
 # Set Resources
@@ -189,13 +181,25 @@
         client.background       $bg
 
 # Run wal
-    exec --no-startup-id wal -i /home/jayajr/images/backgrounds/Peaks.png -a 50
+    exec --no-startup-id wal -i /home/jayajr/Pictures/Wallpapers/M.jpg -a 50
     
 # Run dunst
     exec dunst
 
 # Run compton
     exec compton --dbus &
+
+# Setup multi-monitor
+    
+    # Monitor 21:9 support
+    #exec xrandr --newmode "21:9"  299.75  3440 3664 4024 4608  1440 1443 1453 1479 -hsync +vsync
+    #exec xrandr --addmode HDMI2 21:9
+    
+    # Home monitor
+    #exec xrandr --output HDMI2 --mode 21:9 --above eDP1
+    
+    # Work monitor
+    #exec xrandr --output HDMI2 --auto --right-of eDP1 
 
 
 
@@ -211,3 +215,16 @@
 #66cccc Aqua
 #6699cc Blue
 #cc99cc Purple
+#
+#
+
+exec --no-startup-id nm-applet
+exec --no-startup-id pa-applet
+
+bar {
+	status_command i3status
+	tray_output eDP1
+	workspace_buttons yes
+	
+}
+
